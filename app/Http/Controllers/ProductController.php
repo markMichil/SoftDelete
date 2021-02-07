@@ -45,14 +45,17 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+
         $data = request()->validate([
 
             'name'          => 'required|min:3|max:25|',
             'qty'         => 'nullable|numeric|between:0,10000',
+            'imagee'         => '',
 
 
         ]);
-        product::create($data);
+        $product = Product::create($data);
+        $product->addMediaFromRequest('imagee')->toMediaCollection('glasses','media');
 
 
        return back();
@@ -116,5 +119,16 @@ class ProductController extends Controller
 
        $product->restore();
        return redirect('product');
+    }
+    public function NewImage(Request $request)
+    {
+        $product = product::find($request->id);
+        $product->addMediaFromRequest('imagee')->toMediaCollection('glasses','media');
+       return redirect('product');
+    }
+    public function policy(Request $request)
+    {
+
+       return 'asasdasdasdasdas asasdasd asdasklnslklasfl lkaslfkjalfk';
     }
 }

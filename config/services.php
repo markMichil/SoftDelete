@@ -30,4 +30,17 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'facebook' => [
+        'client_id'     => '4943123705728129',
+        'client_secret' => '5fce03fdc507a17a2770166b933898a2',
+        'redirect'      => 'https://multivisionco.com/public/auth/facebook/callback',
+    ],
+
+
+    'google' => [
+        'client_id'     => '624726085502-hqsbae0l7vgkq58s4loq18s1qj2lfgdm.apps.googleusercontent.com',
+        'client_secret' => 'k9DILqBr7mCx2S_ulCcPfvrg',
+        'redirect'      => 'https://iopticsstore.com/public/auth/google/callback',
+    ],
+
 ];

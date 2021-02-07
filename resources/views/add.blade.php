@@ -70,17 +70,21 @@
 
 
             <div class="content">
-                <form action="{{route('product.store')}}" method="post">
+                <form action="{{route('product.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
 
                     Name :
                     <input type="text" name="name" placeholder="pro.name">
                     qty :
                     <input type="text" name="qty" placeholder="pro.qty">
+                    IMAGE :
+                    <input type="file" name="imagee" >
                     <button type="submit">ADD NEW PRODUCT</button>
                 </form>
                 <div class="title m-b-md">
                     ALL PRODUCT
+                    <br>
+                    [Soft-Delete/Media Library]
                 </div>
 
                 <br>
@@ -92,6 +96,8 @@
                         <th>created_at</th>
                         <th>updated_at</th>
                         <th>Soft Delete</th>
+                        <th>Image</th>
+                        <th>add new image</th>
 
                     </tr>
                     </thead>
@@ -103,7 +109,7 @@
 
                         <tr>
                             <td>{{$pro->name}}</td>
-                            <td>{{$pro->name}}</td>
+                            <td>{{$pro->qty}}</td>
                             <td>{{($pro->created_at)?$pro->created_at:'null'}}</td>
                             <td>{{($pro->updated_at)?$pro->updated_at:'null'}}</td>
                             <td>
@@ -112,6 +118,26 @@
                                     {{ method_field('DELETE') }}
                                     <button class="btn btn-danger">Delete <i class="far fa-trash-alt"></i></button>
                                 </form>
+                            </td>
+                            <td style="width: 100px">
+                               @if (count($pro->getMedia('glasses'))>0)
+
+                                   @foreach($pro->getMedia('glasses') as $image)
+
+                                        <img  src="{{$image->getUrl()}}" width="100%">
+                                       <hr>
+                                   @endforeach
+                               @endif
+                            </td>
+                            <td>
+
+                                <form action="{{ url('product/newImage') }}" method="POST" enctype="multipart/form-data">
+                                    {{ csrf_field() }}
+                                    <input type="hidden" name="id" value="{{$pro->id}}">
+                                   <input type="file" name="imagee">
+                                    <button class="btn btn-danger">New Image <i class="far fa-trash-alt"></i></button>
+                                </form>
+
                             </td>
 
 

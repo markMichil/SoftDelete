@@ -81,19 +81,23 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Laravel 7
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a  style=" margin:5px;font-size: xx-large; border: 1px solid black" href="{{url('product')}}">Product/media Library</a>
+                    <a style="margin:5px; font-size: xx-large; border: 1px solid black" href="{{url('product/aaa')}}">VieW Trashed</a>
+                    <hr>
+                    <form method="post">
+                        <a style="margin:5px; font-size: xx-large; border: 1px solid black" href="#">Social Login</a>
+                        @csrf
+                        <button style=" float : right; margin-top: 20px" formaction="{{url('/auth/facebook')}}" class="col-xs-3 btn btn-primary">Facebook</button>
+                        <button style=" float: left; margin-top: 20px;margin-left: 20px;margin-right: 20px;" formaction="{{url('/auth/google')}}" class="col-xs-3 btn btn-danger"><i class="fa fa-google"></i> Google</button>
+                    </form>
+                    <hr>
+
                 </div>
+
             </div>
         </div>
     </body>

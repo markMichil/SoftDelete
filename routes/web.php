@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use app\Http\Controllers\auth\LoginController;
 
 
 /*
@@ -20,7 +21,17 @@ Route::get('/', function () {
 });
 Route::post('product/restore/{id}','ProductController@Restore')->name('product/restore');
 Route::post('product/force/{id}','ProductController@Force')->name('product/force');
-Route::get('product/aaa','ProductController@Trashed');
-//Route::get('product/aaa',[ProductController::class,'Trashed'])->name('product/aaa');
+Route::post('product/newImage','ProductController@NewImage')->name('product/newImage');
+Route::get('product/trashed','ProductController@Trashed');
+Route::get('policy', 'ProductController@policy');
+
 Route::resource('product','ProductController');
+
+Route::get('socialLogin','ProductController@Trashed');
+
+Route::post('auth/facebook', 'auth\LoginController@redirectToFacebook')->name('auth/facebook');
+Route::get('auth/facebook/callback', 'auth\LoginController@handleFacebookCallback');
+
+Route::post('auth/google', 'auth\LoginController@redirectToGoogle')->name('auth/google');
+Route::get('auth/google/callback', 'auth\LoginController@handleGoogleCallback');
 
