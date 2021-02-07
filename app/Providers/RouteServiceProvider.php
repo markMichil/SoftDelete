@@ -33,6 +33,10 @@ class RouteServiceProvider extends ServiceProvider
         //
 
         parent::boot();
+
+        //product Slug Route
+        Route::model('product', \App\Product::class);
+
     }
 
     /**

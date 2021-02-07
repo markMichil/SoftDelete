@@ -82,11 +82,14 @@
             <div class="content">
                 <div class="title m-b-md">
                     Laravel 7
+                    <br>
+                    media Library - SoftDelete - Socialite - Sluggable
                 </div>
+
 
                 <div class="links">
                     <a  style=" margin:5px;font-size: xx-large; border: 1px solid black" href="{{url('product')}}">Product/media Library</a>
-                    <a style="margin:5px; font-size: xx-large; border: 1px solid black" href="{{url('product/aaa')}}">VieW Trashed</a>
+                    <a style="margin:5px; font-size: xx-large; border: 1px solid black" href="{{url('product/trashed')}}">VieW Trashed</a>
                     <hr>
                     <form method="post">
                         <a style="margin:5px; font-size: xx-large; border: 1px solid black" href="#">Social Login</a>

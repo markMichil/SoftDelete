@@ -93,11 +93,13 @@
                     <tr>
                         <th>name</th>
                         <th>Qty</th>
+                        <th>slug</th>
                         <th>created_at</th>
                         <th>updated_at</th>
                         <th>Soft Delete</th>
                         <th>Image</th>
                         <th>add new image</th>
+                        <th>Show</th>
 
                     </tr>
                     </thead>
@@ -110,10 +112,11 @@
                         <tr>
                             <td>{{$pro->name}}</td>
                             <td>{{$pro->qty}}</td>
+                            <td>{{$pro->slug}}</td>
                             <td>{{($pro->created_at)?$pro->created_at:'null'}}</td>
                             <td>{{($pro->updated_at)?$pro->updated_at:'null'}}</td>
                             <td>
-                                <form action="{{ url('product' , $pro->id ) }}" method="POST">
+                                <form action="{{ url('product' , $pro->slug ) }}" method="POST">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
                                     <button class="btn btn-danger">Delete <i class="far fa-trash-alt"></i></button>
@@ -140,14 +143,16 @@
 
                             </td>
 
-
+<td>
+    <a href="{{url('product')}}/{{$pro->slug}}">Link </a>
+</td>
                         </tr>
                     @endforeach
                     </tbody>
 
 
                 </table>
-            <a href="{{url('product/aaa')}}"> View Trashed Products</a>
+            <a href="{{url('product/trashed')}}"> View Trashed Products</a>
             </div>
         </div>
     </body>

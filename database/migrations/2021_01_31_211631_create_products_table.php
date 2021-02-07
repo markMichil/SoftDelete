@@ -17,8 +17,10 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('qty');
+            $table->string('slug');
+            $table->softDeletes();
             $table->timestamps();
-            $table->timestamp('delete_at')->nullable();
+
         });
     }
 

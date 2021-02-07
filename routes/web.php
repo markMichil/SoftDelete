@@ -19,10 +19,13 @@ use app\Http\Controllers\auth\LoginController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::post('product/restore/{id}','ProductController@Restore')->name('product/restore');
-Route::post('product/force/{id}','ProductController@Force')->name('product/force');
-Route::post('product/newImage','ProductController@NewImage')->name('product/newImage');
 Route::get('product/trashed','ProductController@Trashed');
+Route::get('product/{product}','ProductController@show');
+
+Route::post('product/restore/{product}','ProductController@Restore')->name('product/restore');
+Route::post('product/force/{product}','ProductController@Force')->name('product/force');
+Route::post('product/newImage','ProductController@NewImage')->name('product/newImage');
+
 Route::get('policy', 'ProductController@policy');
 
 Route::resource('product','ProductController');

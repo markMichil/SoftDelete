@@ -69,7 +69,9 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+       echo 'name : '. $product->name .' <br>';
+       echo 'Slug : ' .$product->slug .' <hr>';
+    return  '<h1>generate Url Slug</h1>';
     }
 
     /**
